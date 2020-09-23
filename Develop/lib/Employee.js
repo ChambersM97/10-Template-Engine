@@ -6,11 +6,26 @@ class Employee {
         this.email = email
     }
 }
+  
+getName() {
+    return name;
+}
 
-Employee.prototype.getName = function() {}
-Employee.prototype.getId = function() {code goes here}
-Employee.prototype.getEmail = function() {}
-Employee.prototype.getRole = function() {}
+getId(); {
+    
+}
+
+getEmail() {
+
+}
+//Returns 'Employee'
+getRole(); {
+
+}
+// Employee.prototype.getName = function() {}
+// Employee.prototype.getId = function() {code goes here}
+// Employee.prototype.getEmail = function() {}
+// Employee.prototype.getRole = function() {}
 
 new Employee ();
 
