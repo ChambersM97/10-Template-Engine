@@ -1,13 +1,16 @@
 // TODO: Write code to define and export the Employee class
-function Employee (name, id, email ) {
-    this.name = name
-    this.id = id
-    this.email = email
-    this.getId()
-    this.getEmail()
-    // get role return 'Employee' not sure what that does yet
-    this.getRole()
+class Employee {
+    constructor(name, id, email) {
+        this.name = name
+        this.id = id
+        this.email = email
+    }
 }
+
+Employee.prototype.getName = function() {}
+Employee.prototype.getId = function() {code goes here}
+Employee.prototype.getEmail = function() {}
+Employee.prototype.getRole = function() {}
 
 new Employee ();
 
@@ -15,4 +18,4 @@ new Employee ();
 //it takes the object the constructor function makes and takes it off the page
 //to one of the designated ones: Engineer, Intern, and Manager
 // export.(???)
-module.exports = Employee;
+//module.exports = Employee;
