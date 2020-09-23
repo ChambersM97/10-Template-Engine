@@ -12,13 +12,13 @@ getName() {
 }
 
 getId(); {
-    
+    return id;
 }
 
 getEmail() {
-
+    return email;
 }
-//Returns 'Employee'
+//Returns 'Employee', I think this is where you place manager, intern, and engineer
 getRole(); {
 
 }
