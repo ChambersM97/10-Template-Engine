@@ -20,18 +20,23 @@ teamArray = [];
 
 //this is where are going to ask the questions that
 //will fill out the 'Employee' class
-function teamMemberQuestions() {
-    return inquirer.prompt(
+    inquirer.prompt(
         {
             type: "list",
+            name: "role",
             message: "Are you an Intern, Engineer, or Manager?",
             choices: [
                 "Intern",
-                ""
+                "Engineer",
+                "Manager"
             ]
         }
-    ) 
-}
+ 
+    ).then(workerAnswer => {
+            const { role } = workerAnswer;
+    
+    }
+
 
 
 // After the user has input all employees desired, call the `render` function (required
