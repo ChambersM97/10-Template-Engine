@@ -40,6 +40,10 @@ teamArray = [];
             type: "list",
             name: "id",
             message: "What is the employee's id?"
+        }, {
+            type: "list",
+            name: "email",
+            message: "What is their email address?"
         }
  
     ).then(workerAnswer => {
@@ -47,10 +51,15 @@ teamArray = [];
     switch(role) {
         case 'Engineer':
             engineerQuestion(role, "githubUsername", "What is their Github username?", workerAnswer);
-        return;
+        break;
         case 'Manger':
-            managerQuestion(role, "officeNumber", "What is their office number?", workerAnswer)
-    }
+            managerQuestion(role, "officeNumber", "What is their office number?", workerAnswer);
+        break;
+        case 'Intern':
+            internQuestion(role, "What school is the Intern at?", workerAnswer);
+            console.table(workerAnswer);
+        break;
+    }   
     }
 
 
