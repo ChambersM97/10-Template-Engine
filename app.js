@@ -48,6 +48,7 @@ teamArray = [];
  
     ).then(workerAnswer => {
             const { role } = workerAnswer;
+            console.log({ role });
     switch(role) {
         case 'Engineer':
             engineerQuestion(role, "githubUsername", "What is their Github username?", workerAnswer);
@@ -57,7 +58,7 @@ teamArray = [];
         break;
         case 'Intern':
             internQuestion(role, "What school is the Intern at?", workerAnswer);
-            console.table(workerAnswer);
+            console.log(workerAnswer);
         break;
     }   
     }
