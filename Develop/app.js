@@ -24,17 +24,33 @@ teamArray = [];
         {
             type: "list",
             name: "role",
-            message: "Are you an Intern, Engineer, or Manager?",
+            message: "Is the employee an Intern, Engineer, or a Manager?",
             choices: [
                 "Intern",
                 "Engineer",
                 "Manager"
             ]
+        },
+        {
+            type: "input",
+            name: "name",
+            message: "What is the employee's name?"
+        },
+        {
+            type: "list",
+            name: "id",
+            message: "What is the employee's id?"
         }
  
     ).then(workerAnswer => {
             const { role } = workerAnswer;
-    
+    switch(role) {
+        case 'Engineer':
+            engineerQuestion(role, "githubUsername", "What is their Github username?", workerAnswer);
+        return;
+        case 'Manger':
+            managerQuestion(role, "officeNumber", "What is their office number?", workerAnswer)
+    }
     }
 
 
