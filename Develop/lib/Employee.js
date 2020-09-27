@@ -11,7 +11,7 @@ getName() {
     return name;
 }
 
-getId(); {
+getId() {
     return id;
 }
 
@@ -19,7 +19,7 @@ getEmail() {
     return email;
 }
 //Returns 'Employee', I think this is where you place manager, intern, and engineer
-getRole(); {
+getRole() {
 
 }
 // Employee.prototype.getName = function() {}
