@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+const Employee = require("./lib/Employee")
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -51,19 +52,20 @@ teamArray = [];
             console.log({ role });
     switch(role) {
         case 'Engineer':
-            engineerQuestion(role, "githubUsername", "What is their Github username?", workerAnswer);
+            engineerQuestion();
         break;
         case 'Manger':
-            managerQuestion(role, "officeNumber", "What is their office number?", workerAnswer);
+            managerQuestion();
         break;
         case 'Intern':
-            internQuestion(role, "What school is the Intern at?", workerAnswer);
+            internQuestion();
             console.log(workerAnswer);
         break;
     }   
-    }
+    });
 
-
+//const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNmber)
+//const engineer = new Engineer()
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
