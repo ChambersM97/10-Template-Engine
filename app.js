@@ -64,6 +64,18 @@ teamArray = [];
     }   
     });
 
+    // engineerQuestion() {}
+    // managerQuestion() {}
+    // internQuestion() {}
+
+    //code for writing  to the destinated html file
+    // fs.writeFile("./templates/main.html", fullHTML, function(err) {
+    //     if (err) {
+    //        return console.log(err);
+    //     }
+    //  });
+  
+
 //const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNmber)
 //const engineer = new Engineer()
 
@@ -80,9 +92,3 @@ teamArray = [];
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
