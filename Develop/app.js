@@ -20,17 +20,18 @@ teamArray = [];
 
 //this is where are going to ask the questions that
 //will fill out the 'Employee' class
-function teamMemberQuestions() {
+const teamMemberQuestions = () => {
     return inquirer.prompt(
         {
             type: "list",
+            name: "role",
             message: "Are you an Intern, Engineer, or Manager?",
             choices: [
                 "Intern",
-                ""
-            ]
-        }
-    ) 
+                "Engineer",
+                "Manager"
+
+        ]}).then
 }
 
 
