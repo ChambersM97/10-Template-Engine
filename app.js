@@ -49,7 +49,7 @@ teamArray = [];
  
     ).then(workerAnswer => {
             const { role } = workerAnswer;
-            console.log({ role });
+            // console.log({ role });
     switch(role) {
         case 'Engineer':
             engineerQuestion();
@@ -64,9 +64,35 @@ teamArray = [];
     }   
     });
 
-    // engineerQuestion() {}
-    // managerQuestion() {}
-    // internQuestion() {}
+    engineerQuestion = () => {
+         inquirer.prompt([
+            {
+                type: "input",
+                message: "What is the Engineer's Github Username?",
+                name: "github"
+            }
+         ])
+     }
+
+    managerQuestion = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What is the Manager's Office Number?",
+                name: "officeNumber"
+            }
+        ])
+    }
+
+    internQuestion = () => {
+        inquirer.prompt([
+            {
+                type: "input",
+                message: "What school is the Intern from?",
+                name: "school"
+            }
+        ])
+    }
 
     //code for writing  to the destinated html file
     // fs.writeFile("./templates/main.html", fullHTML, function(err) {
@@ -76,7 +102,7 @@ teamArray = [];
     //  });
   
 
-//const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNmber)
+//const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNumber)
 //const engineer = new Engineer()
 
 // After the user has input all employees desired, call the `render` function (required
@@ -88,7 +114,3 @@ teamArray = [];
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
