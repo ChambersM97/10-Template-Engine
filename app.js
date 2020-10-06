@@ -31,23 +31,7 @@ teamArray = [];
                 "Engineer",
                 "Manager"
             ]
-        },
-        {
-            type: "input",
-            name: "name",
-            message: "What is the employee's name?"
-        },
-        {
-            type: "list",
-            name: "id",
-            message: "What is the employee's id?"
-        }, {
-            type: "list",
-            name: "email",
-            message: "What is their email address?"
-        }
- 
-    ).then(workerAnswer => {
+        }).then(workerAnswer => {
             const { role } = workerAnswer;
             // console.log({ role });
     switch(role) {
@@ -66,21 +50,52 @@ teamArray = [];
 
     engineerQuestion = () => {
          inquirer.prompt([
+            
+            {
+                type: "input",
+                name: "name",
+                message: "What is the employee's name?"
+            },
+            {
+                type: "list",
+                name: "id",
+                message: "What is the employee's id?"
+            }, 
+            {
+                type: "list",
+                name: "email",
+                message: "What is their email address?"
+            },
             {
                 type: "input",
                 message: "What is the Engineer's Github Username?",
-                name: "github"
-            }
+                name: "github",
+            }  
          ])
-     }
+    }
 
     managerQuestion = () => {
         inquirer.prompt([
             {
                 type: "input",
+                name: "name",
+                message: "What is the employee's name?"
+            },
+            {
+                type: "list",
+                name: "id",
+                message: "What is the employee's id?"
+            }, 
+            {
+                type: "list",
+                name: "email",
+                message: "What is their email address?"
+            },
+            {
+                type: "input",
                 message: "What is the Manager's Office Number?",
-                name: "officeNumber"
-            }
+                name: "officeNumber",
+            },
         ])
     }
 
@@ -88,9 +103,24 @@ teamArray = [];
         inquirer.prompt([
             {
                 type: "input",
+                name: "name",
+                message: "What is the employee's name?"
+            },
+            {
+                type: "list",
+                name: "id",
+                message: "What is the employee's id?"
+            }, 
+            {
+                type: "list",
+                name: "email",
+                message: "What is their email address?"
+            },
+            {
+                type: "input",
                 message: "What school is the Intern from?",
-                name: "school"
-            }
+                name: "school",
+            },
         ])
     }
 
