@@ -73,7 +73,8 @@ teamArray = [];
             }  
          ])
     }
-
+    //const engineer = new Engineer(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.github)
+    //teamMembers.push(newEngineer);
     managerQuestion = () => {
         inquirer.prompt([
             {
@@ -98,6 +99,8 @@ teamArray = [];
             },
         ])
     }
+    //const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNumber)
+    //teamMembers.push(newManager);
 
     internQuestion = () => {
         inquirer.prompt([
@@ -123,6 +126,9 @@ teamArray = [];
             },
         ])
     }
+
+    //const intern = new Inter(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.school)
+    //teamMembers.push(newIntern);
 
     //code for writing  to the destinated html file
     // fs.writeFile("./templates/main.html", fullHTML, function(err) {
