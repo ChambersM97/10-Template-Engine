@@ -13,14 +13,15 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
+
+let employeeID = 1;
 
 //this is where we are going to push our filled out classes
 teamArray = [];
 
 //this is where are going to ask the questions that
 //will fill out the 'Employee' class
+function startQuestion() {
     inquirer.prompt(
         {
             type: "list",
@@ -29,7 +30,8 @@ teamArray = [];
             choices: [
                 "Intern",
                 "Engineer",
-                "Manager"
+                "Manager",
+                "Done"
             ]
         }).then(workerAnswer => {
             const { role } = workerAnswer;
@@ -38,15 +40,17 @@ teamArray = [];
         case 'Engineer':
             engineerQuestion();
         break;
-        case 'Manger':
+        case 'Manager':
             managerQuestion();
         break;
         case 'Intern':
             internQuestion();
-            console.log(workerAnswer);
         break;
+
+        default: buildTemplate();
+        console.log('yeet- Parker')
     }   
-    });
+    })};
 
     engineerQuestion = () => {
          inquirer.prompt([
@@ -57,12 +61,7 @@ teamArray = [];
                 message: "What is the employee's name?"
             },
             {
-                type: "list",
-                name: "id",
-                message: "What is the employee's id?"
-            }, 
-            {
-                type: "list",
+                type: "input",
                 name: "email",
                 message: "What is their email address?"
             },
@@ -71,8 +70,24 @@ teamArray = [];
                 message: "What is the Engineer's Github Username?",
                 name: "github",
             }  
-         ])
-    }
+         ]).then(function(response) {
+             let engineerName = response.name;
+             let engineerEmail = response.email;
+             let engineerGitHub = response.github;
+             let engineer = new Engineer(
+                engineerName,
+                employeeID,
+                engineerEmail,
+                engineerGitHub
+             );
+            
+             teamArray.push(engineer);
+             employeeID++;
+             startQuestion();
+
+    });
+}
+    
     //const engineer = new Engineer(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.github)
     //teamMembers.push(newEngineer);
     managerQuestion = () => {
@@ -83,12 +98,7 @@ teamArray = [];
                 message: "What is the employee's name?"
             },
             {
-                type: "list",
-                name: "id",
-                message: "What is the employee's id?"
-            }, 
-            {
-                type: "list",
+                type: "input",
                 name: "email",
                 message: "What is their email address?"
             },
@@ -97,8 +107,23 @@ teamArray = [];
                 message: "What is the Manager's Office Number?",
                 name: "officeNumber",
             },
-        ])
-    }
+        ]).then(function(response) {
+            let managerName = response.name;
+            let managerEmail = response.email;
+            let managerOfficeNumber = response.officeNumber;
+            let manager = new Manager(
+               managerName,
+               employeeID,
+               managerEmail,
+               managerOfficeNumber
+            );
+            
+            teamArray.push(manager);
+            employeeID++;
+            startQuestion();
+
+
+   })};
     //const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNumber)
     //teamMembers.push(newManager);
 
@@ -110,12 +135,7 @@ teamArray = [];
                 message: "What is the employee's name?"
             },
             {
-                type: "list",
-                name: "id",
-                message: "What is the employee's id?"
-            }, 
-            {
-                type: "list",
+                type: "input",
                 name: "email",
                 message: "What is their email address?"
             },
@@ -123,30 +143,43 @@ teamArray = [];
                 type: "input",
                 message: "What school is the Intern from?",
                 name: "school",
-            },
-        ])
+            }
+
+ 
+
+        ]).then(function(response) {
+            let internName = response.name;
+            let internEmail = response.email;
+            let internSchool = response.school;
+            let intern = new Intern(
+               internName,
+               employeeID,
+               internEmail,
+               internSchool
+            );
+            
+            teamArray.push(intern);
+            employeeID++;
+            startQuestion();
+
+
+   })
     }
 
     //const intern = new Inter(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.school)
     //teamMembers.push(newIntern);
 
     //code for writing  to the destinated html file
-    // fs.writeFile("./templates/main.html", fullHTML, function(err) {
-    //     if (err) {
-    //        return console.log(err);
-    //     }
-    //  });
+function buildTemplate () {
+    fs.writeFile(outputPath, render(teamArray), function(err) {
+        if (err) {
+            return console.log(err);
+        }
+})};
+     
   
 
+     startQuestion();
 //const manager = new Manager(workerAnswer.name, workerAnswer.id, workerAnswer.email, workerAnswer.officeNumber)
 //const engineer = new Engineer()
 
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
